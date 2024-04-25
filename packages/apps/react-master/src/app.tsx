@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react";
+import { HashRouter, useRoutes } from "react-router-dom";
+import { router } from "./router/index";
+
+const Routers = () => useRoutes(router);
 
 export default function app() {
-  return (
-    <div>app1</div>
-  )
+	return (
+		<HashRouter>
+			<Routers />
+		</HashRouter>
+	);
 }
