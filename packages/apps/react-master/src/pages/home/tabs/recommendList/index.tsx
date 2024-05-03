@@ -7,7 +7,7 @@ import React, {
 	useState,
 } from "react";
 import { mockList } from "./mockList";
-// import { apiGet } from "../../../../apis/request";
+import { apiGet } from "../../../../apis/request";
 
 type Props = {};
 
@@ -220,6 +220,17 @@ export const useRefInsobsState = (ref: RefObject<HTMLDivElement>) => {
 export default function recommendList({}: Props) {
     const scrollRef = useRef(null);
     const list = useRefInsobsState(scrollRef);
+    const getsth = async () => {
+        const res = await apiGet({
+            url: 'recommend',
+            startNum: 1,
+            pageSize: 65
+        })
+        console.log(res, 'res==')
+    }
+    useEffect(()=>{
+        getsth()
+    }, [])
 
 	return (
 		<>

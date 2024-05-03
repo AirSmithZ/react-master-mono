@@ -23,6 +23,7 @@ router.get('/api/recommend', (req, res) => {
     console.log(req.query);
     
     const { startNum, pageSize } = req.query || {};
+    console.log(req, 'req=====');
     res.header("Access-Control-Allow-Origin", "*");
 
     res.json({
